@@ -8,10 +8,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ShoppingListComponent } from './components/shopping-list/shopping-list.component';
+import { ShoppingDialogComponent } from './components/shopping-dialog/shopping-dialog.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ShoppingCartComponent,
+    ShoppingListComponent,
+    ShoppingDialogComponent
   ],
   imports: [
     BrowserModule,
