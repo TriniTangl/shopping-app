@@ -39,6 +39,9 @@ export class LoadItemsFailureAction implements Action {
 
 export class AddItemAction implements Action {
     readonly type = ShoppingActionTypes.ADD_ITEM;
+
+    constructor(public payload: ShoppingItem) {
+    }
 }
 
 export class AddItemSuccessAction implements Action {
@@ -57,6 +60,9 @@ export class AddItemFailureAction implements Action {
 
 export class DeleteItemAction implements Action {
     readonly type = ShoppingActionTypes.DELETE_ITEM;
+
+    constructor(public payload: string) {
+    }
 }
 
 export class DeleteItemSuccessAction implements Action {
@@ -75,6 +81,9 @@ export class DeleteItemFailureAction implements Action {
 
 export class EditItemAction implements Action {
     readonly type = ShoppingActionTypes.EDIT_ITEM;
+
+    constructor(public payload: ShoppingItem) {
+    }
 }
 
 export class EditItemSuccessAction implements Action {
