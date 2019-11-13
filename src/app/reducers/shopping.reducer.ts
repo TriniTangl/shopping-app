@@ -54,3 +54,5 @@ export function ShoppingReducer(state: ShoppingState = initialState, action: Sho
             return state;
     }
 }
+
+export const getShoppingItemsInCart = (state: ShoppingState) => state.list.filter(item => item.amountInCart > 0);
