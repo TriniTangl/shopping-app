@@ -1,1 +1,13 @@
-<p>shopping-dialog works!</p>
+<div class="modal-overlay" [class.hidden]="false" style="display:none;">
+    <div class="modal-container">
+        <h2>Edit item / Create item</h2>
+        <div class="modal-body">
+            <input type="text" class="field" placeholder="Item name">
+            <input type="text" class="field" placeholder="Item amount">
+        </div>
+        <div class="modal-footer">
+            <button type="button" title="Close dialog" class="btn btn-left">⊘</button>
+            <button type="button" title="Save item / Add new item" class="btn btn-right">✓ / +</button>
+        </div>
+    </div>
+</div>
