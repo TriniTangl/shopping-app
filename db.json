@@ -1,1 +1,46 @@
-{ }
+{
+    "shopping": [
+        {
+            "id": "0DE71847-4D82-1ACB-297F-1E5D59864D66",
+            "name": "Dark chocolate",
+            "amount": 5,
+            "amountInCart": 0
+        },
+        {
+            "id": "5B6ECEA8-20FE-88FD-03E4-D2AA9A08741B",
+            "name": "Kidney beans",
+            "amount": 8,
+            "amountInCart": 2
+        },
+        {
+            "id": "A7F30B84-1588-B122-C70C-21E5720A3008",
+            "name": "Chicken breasts",
+            "amount": 2,
+            "amountInCart": 0
+        },
+        {
+            "id": "915DD147-E91A-13BF-C074-B6BFD3BBDA65",
+            "name": "Chia seeds",
+            "amount": 4,
+            "amountInCart": 3
+        },
+        {
+            "id": "0A454252-85AF-BFA7-BE95-FB0903929D5A",
+            "name": "Lean beef",
+            "amount": 0,
+            "amountInCart": 0
+        },
+        {
+            "id": "5BE6E7AD-61A7-D353-1DAF-EEC61B0AB78A",
+            "name": "Strawberries",
+            "amount": 9,
+            "amountInCart": 5
+        },
+        {
+            "id": "E1DAAF6E-95FD-596C-59B0-B31FF8C04B40",
+            "name": "Extra virgin olive oil",
+            "amount": 1,
+            "amountInCart": 0
+        }
+    ]
+}
