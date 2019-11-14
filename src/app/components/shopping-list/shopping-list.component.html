@@ -1,1 +1,21 @@
-<p>shopping-list works!</p>
+<div class="list-container">
+    <h2 class="header">Shopping List</h2>
+    
+    <ul class="list">
+        <li>
+            <span class="btn-list-left">🖉</span>
+            <span class="content">Lorem ipsum</span>
+            <span class="btn-list-right">✕</span>
+        </li>
+    </ul>
+    
+    <ng-template #emptyList>
+        <ul>
+            <li class="empty-list">
+                No items found. Are you sure there's <em>nothing</em> you want?
+            </li>
+        </ul>
+    </ng-template>
+    
+    <button type="button" class="btn">+</button>
+</div>
