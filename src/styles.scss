@@ -1,1 +1,107 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    max-width: 100%;
+    height: 100vh;
+    margin: 0 auto;
+    padding: 0 5px;
+    font-family: Arial, sans-serif;
+    background-color: #576574;
+}
+
+h2 {
+    height: 30px;
+    margin: 0;
+    padding: 10px 0;
+    background: #10ac84;
+}
+
+.main-error {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 18px;
+    background: #10ac84;
+}
+
+.list-container {
+    max-width: 600px;
+    margin: 0 auto;
+    transition: box-shadow 500ms linear;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 20px 20px 0 #222f3e;
+
+    &.loading {
+        box-shadow: 20px 20px 0 #0a4a39 !important;
+    }
+
+    .list {
+        margin: 0;
+        padding: 10px 5px;
+        list-style: none;
+        background-color: #1dd1a1;
+
+        li {
+            position: relative;
+            min-height: 28px;
+
+            &.empty-list {
+                background-color: #222f3e;
+            }
+
+            .content {
+                display: inline-block;
+                padding: 5px 20px;
+                cursor: pointer;
+            }
+
+            .btn-list-left,
+            .btn-list-right {
+                position: absolute;
+                top: calc(50% - 10px);
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 20px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #006266;
+                }
+            }
+
+            .btn-list-left {
+                left: 0;
+                float: left;
+
+                &.edit-in-progress {
+                    background-color: #006266;
+                }
+            }
+
+            .btn-list-right {
+                right: 0;
+                float: right;
+            }
+        }
+    }
+}
+
+.btn {
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 20px;
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    background-color: #10ac84;
+
+    &:hover {
+        background-color: #006266;
+    }
+}
