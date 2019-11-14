@@ -8,7 +8,7 @@ import {ShoppingItem} from '../models/shopping.model';
     providedIn: 'root'
 })
 export class ShoppingService {
-    private readonly API_URL = 'http://localhost:3000:shopping';
+    private readonly API_URL = 'http://localhost:3000/shopping';
 
     constructor(private http: HttpClient) {
     }
