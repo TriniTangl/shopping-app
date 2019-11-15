@@ -1,20 +1,23 @@
-<div class="list-container">
+<div [class.loading]="loading$ | async" class="list-container">
     <h2 class="header">Cart List</h2>
     
-    <ul class="list">
-        <li>
-            <span class="content">Lorem ipsum</span>
-            <span class="btn-list-right">−</span>
+    <ul *ngIf="cartList.length; else emptyCart" class="list">
+        <li *ngFor="let item of cartList">
+            <span (click)="removeFromCart(item)" class="content" title="Remove from cart one by one">
+                 <b>{{ item.amountInCart }}</b> × {{ item.name }}
+            </span>
+            <span (click)="removeAllFromCart(item)" *ngIf="item.amountInCart > 1" class="btn-list-right"
+                  title="Remove all from cart">−</span>
         </li>
     </ul>
     
-    <ng-template>
-        <ul>
-            <li class="empty-list">
+    <ng-template #emptyCart>
+        <ul class="list empty-list">
+            <li>
                 No items found. You have not added <em>anything</em> to the basket yet?
             </li>
         </ul>
     </ng-template>
     
-    <button class="btn" type="button">🠛</button>
+    <button (click)="buyAll()" [disabled]="!cartList.length" class="btn" title="Buy all" type="button">🠛</button>
 </div>
