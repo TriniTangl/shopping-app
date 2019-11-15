@@ -1,21 +1,23 @@
-<div class="list-container">
+<div [class.loading]="loading$ | async" class="list-container">
     <h2 class="header">Shopping List</h2>
     
-    <ul class="list">
-        <li>
-            <span class="btn-list-left">🖉</span>
-            <span class="content">Lorem ipsum</span>
-            <span class="btn-list-right">✕</span>
+    <ul *ngIf="shoppingItems.length; else emptyList" class="list">
+        <li *ngFor="let item of shoppingItems" [class.zero-amount]="item.amount < 1">
+            <span (click)="editItem(item)" class="btn-list-left" title="Edit item">🖉</span>
+            <span (click)="addItemToCart(item)" class="content" title="Add to cart one by one">
+                <b>{{ item.amount }}</b> × {{ item.name }}
+            </span>
+            <span (click)="deleteItem(item.id)" class="btn-list-right" title="Delete item">✕</span>
         </li>
     </ul>
     
     <ng-template #emptyList>
-        <ul>
-            <li class="empty-list">
+        <ul class="list empty-list">
+            <li>
                 No items found. Are you sure there's <em>nothing</em> you want?
             </li>
         </ul>
     </ng-template>
     
-    <button type="button" class="btn">+</button>
+    <button (click)="addItem()" class="btn" title="Add new item" type="button">+</button>
 </div>
