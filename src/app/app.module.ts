@@ -1,5 +1,6 @@
 import {HttpClientModule} from '@angular/common/http';
 import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 import {BrowserModule} from '@angular/platform-browser';
 import {EffectsModule} from '@ngrx/effects';
 import {StoreModule} from '@ngrx/store';
@@ -23,6 +24,7 @@ import {reducers} from './reducers';
     imports: [
         BrowserModule,
         HttpClientModule,
+        ReactiveFormsModule,
         StoreModule.forRoot(reducers, {
             runtimeChecks: {
                 strictStateImmutability: true,
