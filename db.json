@@ -28,7 +28,13 @@
             "id": "0A454252-85AF-BFA7-BE95-FB0903929D5A",
             "name": "Lean beef",
             "amount": 0,
-            "amountInCart": 0
+            "amountInCart": 5
+        },
+        {
+            "id": "5BE6E7AD-61A7-D353-1DAF-EEC61B0AB78A",
+            "name": "Milk",
+            "amount": 2,
+            "amountInCart": 1
         },
         {
             "id": "5BE6E7AD-61A7-D353-1DAF-EEC61B0AB78A",
