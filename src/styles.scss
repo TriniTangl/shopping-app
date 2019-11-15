@@ -15,7 +15,7 @@ h2 {
     background: #10ac84;
 }
 
-.main-error {
+.error {
     margin: 0;
     padding: 10px 0;
     font-size: 18px;
@@ -31,21 +31,25 @@ h2 {
     box-shadow: 20px 20px 0 #222f3e;
 
     &.loading {
-        box-shadow: 20px 20px 0 #0a4a39 !important;
+        box-shadow: 20px 20px 0 #0b7461;
     }
 
     .list {
         margin: 0;
-        padding: 10px 5px;
+        padding: 10px 0;
         list-style: none;
         background-color: #1dd1a1;
+
+        &.empty-list {
+            background-color: #0a4a39;
+        }
 
         li {
             position: relative;
             min-height: 28px;
 
-            &.empty-list {
-                background-color: #222f3e;
+            &.zero-amount {
+                background-color: #128b6f;
             }
 
             .content {
@@ -72,7 +76,7 @@ h2 {
             }
 
             .btn-list-left {
-                left: 0;
+                left: 5px;
                 float: left;
 
                 &.edit-in-progress {
@@ -81,7 +85,7 @@ h2 {
             }
 
             .btn-list-right {
-                right: 0;
+                right: 5px;
                 float: right;
             }
         }
@@ -100,6 +104,15 @@ h2 {
     border: none;
     outline: none;
     background-color: #10ac84;
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: #107651;
+
+        &:hover {
+            background-color: #107651;
+        }
+    }
 
     &:hover {
         background-color: #006266;

@@ -12,14 +12,10 @@
     padding: 0;
     background-color: rgba(0, 0, 0, 0.5);
 
-    &.hidden {
-        display: none;
-    }
-
     .modal-container {
         position: relative;
         width: 100%;
-        max-width: 500px;
+        max-width: 400px;
         margin: 0 5px;
         padding: 0;
         text-align: center;
@@ -40,12 +36,25 @@
                 line-height: 20px;
                 color: #222f3e;
                 border: none;
+                border-bottom: 1px solid #10ac84;
                 outline: none;
                 background-color: #ffffff;
 
-                &:first-child {
-                    border-bottom: 1px solid #10ac84;
+                &:last-child {
+                    border-bottom: none;
                 }
+            }
+
+            .field-error {
+                display: block;
+                box-sizing: border-box;
+                width: 100%;
+                padding: 5px 10px;
+                font-size: 12px;
+                line-height: 14px;
+                text-align: left;
+                color: #ffffff;
+                background-color: #ef5350;
             }
         }
 
