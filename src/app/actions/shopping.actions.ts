@@ -13,10 +13,7 @@ export enum ShoppingActionTypes {
     DELETE_ITEM_FAILURE = '[SHOPPING] Delete Item Failure',
     EDIT_ITEM = '[SHOPPING] Edit Item',
     EDIT_ITEM_SUCCESS = '[SHOPPING] Edit Item Success',
-    EDIT_ITEM_FAILURE = '[SHOPPING] Edit Item Failure',
-    ADD_ITEM_TO_CART = '[SHOPPING] Add Item To Cart',
-    ADD_ITEM_TO_CART_SUCCESS = '[SHOPPING] Add Item To Cart Success',
-    ADD_ITEM_TO_CART_FAILURE = '[SHOPPING] Add Item To Cart Failure'
+    EDIT_ITEM_FAILURE = '[SHOPPING] Edit Item Failure'
 }
 
 export class LoadItemsAction implements Action {
