@@ -1,13 +1,22 @@
-<div class="modal-overlay" [class.hidden]="false" style="display:none;">
-    <div class="modal-container">
-        <h2>Edit item / Create item</h2>
+<div class="modal-overlay">
+    <form [formGroup]="formDialog" class="modal-container">
+        <h2>{{ description.header }}</h2>
         <div class="modal-body">
-            <input type="text" class="field" placeholder="Item name">
-            <input type="text" class="field" placeholder="Item amount">
+            <input class="field" formControlName="name" placeholder="Item name*" type="text">
+            <span *ngIf="formDialog.controls.name.invalid && formDialog.controls.name.touched" class="field-error">
+                Item name is required.
+            </span>
+            <input class="field" formControlName="amount" placeholder="Item amount*" type="number">
+            <span *ngIf="formDialog.controls.amount.invalid && formDialog.controls.amount.touched" class="field-error">
+                Item amount is required. This should be only an integer and positive.
+            </span>
         </div>
         <div class="modal-footer">
-            <button type="button" title="Close dialog" class="btn btn-left">⊘</button>
-            <button type="button" title="Save item / Add new item" class="btn btn-right">✓ / +</button>
+            <button (click)="closeDialog()" class="btn btn-left" title="Close dialog" type="button">⊘</button>
+            <button (click)="confirmDialog()" [disabled]="formDialog.invalid" [title]="description.buttonTitle"
+                    class="btn btn-right" type="button">
+                {{ description.buttonText }}
+            </button>
         </div>
-    </div>
+    </form>
 </div>
