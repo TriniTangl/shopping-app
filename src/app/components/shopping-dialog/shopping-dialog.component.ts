@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Store} from '@ngrx/store';
 import {v4 as uuid} from 'uuid';
@@ -34,6 +34,19 @@ export class ShoppingDialogComponent implements OnInit {
     constructor(private store: Store<AppState>) {
     }
 
+    @HostListener('document:keyup', ['$event']) keyUpHandler(event: KeyboardEvent): void {
+        switch (event.key) {
+            case 'Enter':
+                this.confirmDialog();
+                break;
+            case 'Escape':
+                this.closeDialog();
+                break;
+            default:
+                break;
+        }
+    }
+
     ngOnInit() {
         this.store.select(store => store.dialog.data).subscribe(
             item => this.shoppingItem = item ? item : {
@@ -61,18 +74,20 @@ export class ShoppingDialogComponent implements OnInit {
     }
 
     public confirmDialog(): void {
-        this.shoppingItem = {
-            ...this.shoppingItem,
-            ...this.formDialog.value
-        };
+        if (this.formDialog.valid) {
+            this.shoppingItem = {
+                ...this.shoppingItem,
+                ...this.formDialog.value
+            };
 
-        if (this.isEdit) {
-            this.store.dispatch(new EditItemAction(this.shoppingItem));
-        } else {
-            this.shoppingItem.id = uuid();
-            this.store.dispatch(new AddItemAction(this.shoppingItem));
+            if (this.isEdit) {
+                this.store.dispatch(new EditItemAction(this.shoppingItem));
+            } else {
+                this.shoppingItem.id = uuid();
+                this.store.dispatch(new AddItemAction(this.shoppingItem));
+            }
+
+            this.store.dispatch(new CloseDialogAction());
         }
-
-        this.store.dispatch(new CloseDialogAction());
     }
 }
