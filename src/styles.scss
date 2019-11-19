@@ -42,6 +42,10 @@ h2 {
 
         &.empty-list {
             background-color: #0a4a39;
+
+            li {
+                min-height: auto;
+            }
         }
 
         li {
@@ -50,6 +54,10 @@ h2 {
 
             &.zero-amount {
                 background-color: #128b6f;
+
+                .content {
+                    cursor: not-allowed;
+                }
             }
 
             .content {
@@ -69,24 +77,24 @@ h2 {
                 font-weight: bold;
                 line-height: 20px;
                 cursor: pointer;
-
-                &:hover {
-                    background-color: #006266;
-                }
             }
 
             .btn-list-left {
                 left: 5px;
                 float: left;
 
-                &.edit-in-progress {
-                    background-color: #006266;
+                &:hover {
+                    background-color: #1E88E5;
                 }
             }
 
             .btn-list-right {
                 right: 5px;
                 float: right;
+
+                &:hover {
+                    background-color: #E53935;
+                }
             }
         }
     }
