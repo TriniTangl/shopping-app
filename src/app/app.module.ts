@@ -13,13 +13,15 @@ import {ShoppingDialogComponent} from './components/shopping-dialog/shopping-dia
 import {ShoppingListComponent} from './components/shopping-list/shopping-list.component';
 import {ShoppingEffects} from './effects/shopping.effects';
 import {reducers} from './reducers';
+import { NotificationComponent } from './components/notification/notification.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ShoppingCartComponent,
         ShoppingListComponent,
-        ShoppingDialogComponent
+        ShoppingDialogComponent,
+        NotificationComponent
     ],
     imports: [
         BrowserModule,
