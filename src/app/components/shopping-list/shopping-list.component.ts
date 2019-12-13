@@ -5,6 +5,7 @@ import {OpenDialogAddingAction, OpenDialogEditingAction} from '../../actions/dia
 import {DeleteItemAction, EditItemAction, LoadItemsAction} from '../../actions/shopping.actions';
 import {AppState} from '../../models/app-state.model';
 import {ShoppingItem} from '../../models/shopping.model';
+import {NotificationMessage, NotificationService, NotificationType} from '../../services/notification.service';
 
 @Component({
     selector: 'app-shopping-list',
@@ -15,7 +16,9 @@ export class ShoppingListComponent implements OnInit {
     public shoppingItems: Array<ShoppingItem>;
     public loading$: Observable<boolean>;
 
-    constructor(private store: Store<AppState>) {
+    constructor(
+        private store: Store<AppState>,
+        private notificationService: NotificationService) {
         this.store.dispatch(new LoadItemsAction());
     }
 
@@ -46,5 +49,9 @@ export class ShoppingListComponent implements OnInit {
 
     public deleteItem(id: string): void {
         this.store.dispatch(new DeleteItemAction(id));
+        this.notificationService.setNotification({
+            type: NotificationType.WARNING,
+            message: NotificationMessage.DELETE_ITEM
+        });
     }
 }

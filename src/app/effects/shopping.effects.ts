@@ -17,6 +17,7 @@ import {
     LoadItemsSuccessAction,
     ShoppingActionTypes
 } from '../actions/shopping.actions';
+import {NotificationService, NotificationType} from '../services/notification.service';
 import {ShoppingService} from '../services/shopping.service';
 
 @Injectable()
@@ -28,14 +29,21 @@ export class ShoppingEffects {
 
     constructor(
         private actions$: Actions,
-        private shoppingService: ShoppingService
+        private shoppingService: ShoppingService,
+        private notificationService: NotificationService
     ) {
         this.loadShoppingItems$ = this.actions$.pipe(
             ofType<LoadItemsAction>(ShoppingActionTypes.LOAD_ITEMS),
             mergeMap(
                 () => this.shoppingService.getShoppingItems().pipe(
                     map((data) => new LoadItemsSuccessAction(data)),
-                    catchError((error) => of(new LoadItemsFailureAction(error)))
+                    catchError((error) => {
+                        this.notificationService.setNotification({
+                            type: NotificationType.ERROR,
+                            message: error.message
+                        });
+                        return of(new LoadItemsFailureAction(error));
+                    })
                 )
             )
         );
@@ -44,7 +52,13 @@ export class ShoppingEffects {
             mergeMap(
                 (data) => this.shoppingService.addShoppingItem(data.payload).pipe(
                     map(() => new AddItemSuccessAction(data.payload)),
-                    catchError((error) => of(new AddItemFailureAction(error)))
+                    catchError((error) => {
+                        this.notificationService.setNotification({
+                            type: NotificationType.ERROR,
+                            message: error.message
+                        });
+                        return of(new AddItemFailureAction(error));
+                    })
                 )
             )
         );
@@ -53,7 +67,13 @@ export class ShoppingEffects {
             mergeMap(
                 (data) => this.shoppingService.deleteShoppingItem(data.payload).pipe(
                     map(() => new DeleteItemSuccessAction(data.payload)),
-                    catchError((error) => of(new DeleteItemFailureAction(error)))
+                    catchError((error) => {
+                        this.notificationService.setNotification({
+                            type: NotificationType.ERROR,
+                            message: error.message
+                        });
+                        return of(new DeleteItemFailureAction(error));
+                    })
                 )
             )
         );
@@ -62,7 +82,13 @@ export class ShoppingEffects {
             mergeMap(
                 (data) => this.shoppingService.editShoppingItem(data.payload).pipe(
                     map(() => new EditItemSuccessAction(data.payload)),
-                    catchError((error) => of(new EditItemFailureAction(error)))
+                    catchError((error) => {
+                        this.notificationService.setNotification({
+                            type: NotificationType.ERROR,
+                            message: error.message
+                        });
+                        return of(new EditItemFailureAction(error));
+                    })
                 )
             )
         );

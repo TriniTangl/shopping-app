@@ -5,6 +5,7 @@ import {DeleteItemAction, EditItemAction} from '../../actions/shopping.actions';
 import {AppState} from '../../models/app-state.model';
 import {ShoppingItem} from '../../models/shopping.model';
 import {selectShoppingItemInCart} from '../../reducers';
+import {NotificationMessage, NotificationService, NotificationType} from '../../services/notification.service';
 
 @Component({
     selector: 'app-shopping-cart',
@@ -15,7 +16,9 @@ export class ShoppingCartComponent implements OnInit {
     public cartList: Array<ShoppingItem>;
     public loading$: Observable<boolean>;
 
-    constructor(public store: Store<AppState>) {
+    constructor(
+        private store: Store<AppState>,
+        private notificationService: NotificationService) {
     }
 
     ngOnInit() {
@@ -55,6 +58,10 @@ export class ShoppingCartComponent implements OnInit {
             } else {
                 this.store.dispatch(new DeleteItemAction(item.id));
             }
+        });
+        this.notificationService.setNotification({
+            type: NotificationType.SUCCESS,
+            message: NotificationMessage.BUY_ALL
         });
     }
 }

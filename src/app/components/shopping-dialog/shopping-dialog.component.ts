@@ -6,6 +6,7 @@ import {CloseDialogAction} from '../../actions/dialog.actions';
 import {AddItemAction, EditItemAction} from '../../actions/shopping.actions';
 import {AppState} from '../../models/app-state.model';
 import {ShoppingItem} from '../../models/shopping.model';
+import {NotificationMessage, NotificationService, NotificationType} from '../../services/notification.service';
 
 const DESCRIPTION = {
     textEdit: {
@@ -31,7 +32,9 @@ export class ShoppingDialogComponent implements OnInit {
     public description: { [key: string]: string };
     public formDialog: FormGroup;
 
-    constructor(private store: Store<AppState>) {
+    constructor(
+        private store: Store<AppState>,
+        private notificationService: NotificationService) {
     }
 
     @HostListener('document:keyup', ['$event']) keyUpHandler(event: KeyboardEvent): void {
@@ -82,9 +85,17 @@ export class ShoppingDialogComponent implements OnInit {
 
             if (this.isEdit) {
                 this.store.dispatch(new EditItemAction(this.shoppingItem));
+                this.notificationService.setNotification({
+                    type: NotificationType.SUCCESS,
+                    message: NotificationMessage.EDIT_ITEM
+                });
             } else {
                 this.shoppingItem.id = uuid();
                 this.store.dispatch(new AddItemAction(this.shoppingItem));
+                this.notificationService.setNotification({
+                    type: NotificationType.SUCCESS,
+                    message: NotificationMessage.ADD_NEW_ITEMS
+                });
             }
 
             this.store.dispatch(new CloseDialogAction());
