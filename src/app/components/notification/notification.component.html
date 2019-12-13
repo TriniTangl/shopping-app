@@ -1,1 +1,4 @@
-<p>notification works!</p>
+<div [class.visible]="notification.message" [ngClass]="['wrapper', notification.type]">
+    {{notification.message}}
+    <span class="btn-close" (click)="closeNotification()">✕</span>
+</div>

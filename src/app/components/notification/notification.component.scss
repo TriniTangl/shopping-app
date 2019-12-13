@@ -1,0 +1,54 @@
+.wrapper {
+    position: fixed;
+    top: -100px;
+    right: 15px;
+    left: 15px;
+    z-index: 10;
+    box-sizing: border-box;
+    max-width: 600px;
+    padding: 10px 30px 10px 5px;
+    color: #ffffff;
+    background-color: #8f93a2;
+    transition: top 500ms linear;
+
+    @media screen and (min-width: 630px) {
+        right: calc((100% - 600px) / 2);
+        left: calc((100% - 600px) / 2);
+    }
+
+    &.danger {
+        background-color: #e53935;
+    }
+
+    &.warning {
+        background-color: #ffca28;
+    }
+
+    &.success {
+        background-color: #1dd1a1;
+    }
+
+    &.visible {
+        top: 15px;
+    }
+
+    .btn-close {
+        position: absolute;
+        top: calc(50% - 10px);
+        right: 5px;
+        display: inline-block;
+        box-sizing: border-box;
+        width: 20px;
+        height: 20px;
+        padding: 0 1px;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 20px;
+        cursor: pointer;
+        border: 1px solid transparent;
+
+        &:hover {
+            border: 1px solid #ffffff;
+        }
+    }
+}
