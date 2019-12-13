@@ -1,6 +1,6 @@
 <div [class.loading]="loading$ | async" class="list-container">
     <h2 class="header">Shopping List</h2>
-    
+
     <ul *ngIf="shoppingItems.length; else emptyList" class="list">
         <li *ngFor="let item of shoppingItems" [class.zero-amount]="item.amount < 1">
             <span (click)="editItem(item)" class="btn-list-left" title="Edit item">🖉</span>
@@ -10,7 +10,7 @@
             <span (click)="deleteItem(item.id)" class="btn-list-right" title="Delete item">✕</span>
         </li>
     </ul>
-    
+
     <ng-template #emptyList>
         <ul class="list empty-list">
             <li>
@@ -18,6 +18,6 @@
             </li>
         </ul>
     </ng-template>
-    
+
     <button (click)="addItem()" class="btn" title="Add new item" type="button">+</button>
 </div>
