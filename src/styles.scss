@@ -30,14 +30,14 @@ h2 {
     color: #ffffff;
     box-shadow: 20px 20px 0 #222f3e;
 
-    @media screen and (max-width: 650px){
+    @media screen and (max-width: 650px) {
         box-shadow: 10px 10px 0 #222f3e;
     }
 
     &.loading {
         box-shadow: 20px 20px 0 #0b7461;
 
-        @media screen and (max-width: 650px){
+        @media screen and (max-width: 650px) {
             box-shadow: 10px 10px 0 #0b7461;
         }
     }
@@ -92,7 +92,7 @@ h2 {
                 float: left;
 
                 &:hover {
-                    background-color: #1E88E5;
+                    background-color: #1e88e5;
                 }
             }
 
@@ -101,7 +101,7 @@ h2 {
                 float: right;
 
                 &:hover {
-                    background-color: #E53935;
+                    background-color: #e53935;
                 }
             }
         }
