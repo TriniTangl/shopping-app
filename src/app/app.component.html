@@ -1,12 +1,9 @@
 <div class="wrapper">
-    <app-shopping-list *ngIf="!(error$ | async); else errorBlock"></app-shopping-list>
-    <app-shopping-cart *ngIf="!(error$ | async)"></app-shopping-cart>
-    
-    <ng-template #errorBlock class="error">
-        <h2>
-            {{ (error$ | async)?.message }}
-        </h2>
-    </ng-template>
+    <app-notification></app-notification>
+
+    <app-shopping-list></app-shopping-list>
+    <app-shopping-cart></app-shopping-cart>
+
 </div>
 
 <app-shopping-dialog *ngIf="isOpen$ | async"></app-shopping-dialog>
